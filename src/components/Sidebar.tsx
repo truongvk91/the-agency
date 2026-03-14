@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { GripVertical } from "lucide-react";
 import {
@@ -142,8 +143,14 @@ export default function Sidebar({ divisions, totalAgents }: SidebarProps) {
     <aside className="sidebar">
       {/* Logo */}
       <div className="sidebar-logo">
-        <div className="logo-icon">⚡</div>
-        <h1 className="logo-text">THE AGENCY</h1>
+        <Image
+          src="/cm-media-logo.jpg"
+          alt="CM Media"
+          width={36}
+          height={36}
+          className="logo-img"
+        />
+        <h1 className="logo-text">CM MEDIA AGENCY</h1>
       </div>
 
       {/* Division List */}

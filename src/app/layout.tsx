@@ -8,8 +8,8 @@ import SearchBar from "@/components/SearchBar";
 const inter = Inter({ subsets: ["latin", "vietnamese"] });
 
 export const metadata: Metadata = {
-  title: "The Agency — AI Prompt Library",
-  description: "Internal AI prompt library. Browse 112+ expert agents across 11 divisions.",
+  title: "CM Media Agency — AI Prompt Library",
+  description: "CM Media Agency - Thư viện Prompt AI nội bộ. Duyệt qua 172+ chuyên gia AI trong 14 phòng ban.",
 };
 
 export default function RootLayout({

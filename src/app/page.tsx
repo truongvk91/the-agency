@@ -11,7 +11,7 @@ export default function HomePage() {
       <div className="hero">
         <div className="hero-glow" />
         <h1 className="hero-title">
-          Welcome to <span className="hero-accent">The Agency</span>
+          Welcome to <span className="hero-accent">CM Media Agency</span>
         </h1>
         <p className="hero-subtitle">
           Thư viện Prompt AI nội bộ. Duyệt qua {totalAgents}+ chuyên gia AI

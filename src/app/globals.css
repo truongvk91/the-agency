@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /* ===========================
-   THE AGENCY — Design System
+   CM MEDIA AGENCY — Design System
    Premium Dark Mode
    =========================== */
 
@@ -99,23 +99,19 @@ a {
   padding: 18px 18px 14px;
 }
 
-.logo-icon {
-  width: 34px;
-  height: 34px;
-  background: linear-gradient(135deg, #6366f1, #a78bfa);
-  border-radius: var(--radius-md);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-  box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+.logo-img {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  object-fit: contain;
+  flex-shrink: 0;
 }
 
 .logo-text {
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 700;
-  letter-spacing: 1.5px;
-  background: linear-gradient(135deg, #c4b5fd, #6366f1);
+  letter-spacing: 1.2px;
+  background: linear-gradient(135deg, #f59e0b, #f97316);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
