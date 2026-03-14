@@ -1916,47 +1916,82 @@ a {
     grid-template-columns: 1fr;
   }
 
-  /* Agent Page — stack vertically */
+  /* Agent/Division Page — stack vertically on mobile */
   .agent-page,
   .division-page {
     flex-direction: column;
     height: auto;
+    min-height: calc(100vh - 52px);
   }
 
-  .agent-list {
+  /* Division page (no agent selected): full vertical list */
+  .division-page .agent-list {
     width: 100%;
     min-width: unset;
-    max-height: 200px;
+    max-height: none;
+    border-right: none;
+    border-bottom: none;
+    flex: 1;
+  }
+
+  .division-page .agent-list-items {
+    flex-direction: column;
+    overflow-y: auto;
+    padding: 4px 10px 20px;
+  }
+
+  /* Hide placeholder on mobile — not useful */
+  .detail-placeholder {
+    display: none;
+  }
+
+  /* Agent detail page: compact horizontal strip at top */
+  .agent-page .agent-list {
+    width: 100%;
+    min-width: unset;
+    max-height: 120px;
     border-right: none;
     border-bottom: 1px solid var(--border);
   }
 
-  .agent-list-items {
+  .agent-page .agent-list-header {
+    padding: 8px 12px 4px;
+  }
+
+  .agent-page .agent-list-title {
+    font-size: 12px;
+  }
+
+  .agent-page .agent-list-items {
     display: flex;
     overflow-x: auto;
     overflow-y: hidden;
     flex-direction: row;
-    padding: 8px;
+    padding: 4px 8px 8px;
     gap: 4px;
     scrollbar-width: none;
   }
 
-  .agent-list-items::-webkit-scrollbar {
+  .agent-page .agent-list-items::-webkit-scrollbar {
     display: none;
   }
 
-  .agent-card {
-    min-width: 180px;
+  .agent-page .agent-card {
+    min-width: 160px;
     flex-shrink: 0;
-    padding: 10px 12px;
+    padding: 8px 10px;
     border: 1px solid var(--border);
     border-radius: var(--radius-sm);
     margin-bottom: 0;
   }
 
-  .agent-desc {
-    -webkit-line-clamp: 1;
-    padding-left: 0;
+  .agent-page .agent-desc {
+    display: none;
+  }
+
+  /* Agent card general mobile tweaks */
+  .agent-card {
+    padding: 10px 12px;
   }
 
   .detail-view {
