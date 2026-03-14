@@ -178,6 +178,10 @@ export default function Sidebar({ divisions, totalAgents }: SidebarProps) {
 
       {/* Footer */}
       <div className="sidebar-footer">
+        <Link href="/combine" className={`sidebar-combine-link ${pathname === "/combine" ? "active" : ""}`}>
+          <span>🔗</span>
+          <span>Combine Prompts</span>
+        </Link>
         <div className="agent-total">
           <span className="total-icon">🤖</span>
           <span>{totalAgents} Agents</span>

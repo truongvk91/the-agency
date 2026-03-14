@@ -215,6 +215,28 @@ export function getAllAgents(): Agent[] {
 }
 
 /**
+ * Get all agents with rawContent included (for combiner)
+ */
+export function getAllAgentsWithContent(): (Agent & { rawContent: string; divisionLabel: string })[] {
+  const divisions = getDivisions();
+  const result: (Agent & { rawContent: string; divisionLabel: string })[] = [];
+  for (const div of divisions) {
+    const agents = getAgentsByDivision(div.id);
+    for (const agent of agents) {
+      const detail = getAgentContent(div.id, agent.id);
+      if (detail) {
+        result.push({
+          ...agent,
+          rawContent: detail.rawContent,
+          divisionLabel: div.label,
+        });
+      }
+    }
+  }
+  return result;
+}
+
+/**
  * Get total agent count
  */
 export function getTotalAgentCount(): number {
