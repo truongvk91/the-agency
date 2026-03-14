@@ -23,28 +23,22 @@ export default function ContentTabs({
   );
   const [copied, setCopied] = useState(false);
 
-  const handleLaunchGemini = async () => {
+  const handleLaunchAI = async (url: string, name: string) => {
     try {
       await navigator.clipboard.writeText(rawContent);
-      setCopied(true);
-      setTimeout(() => {
-        window.open("https://gemini.google.com/app", "_blank");
-        setTimeout(() => setCopied(false), 2000);
-      }, 600);
     } catch {
-      // fallback
       const textarea = document.createElement("textarea");
       textarea.value = rawContent;
       document.body.appendChild(textarea);
       textarea.select();
       document.execCommand("copy");
       document.body.removeChild(textarea);
-      setCopied(true);
-      setTimeout(() => {
-        window.open("https://gemini.google.com/app", "_blank");
-        setTimeout(() => setCopied(false), 2000);
-      }, 600);
     }
+    setCopied(true);
+    setTimeout(() => {
+      window.open(url, "_blank");
+      setTimeout(() => setCopied(false), 2000);
+    }, 600);
   };
 
   return (
@@ -71,7 +65,7 @@ export default function ContentTabs({
         >
           <Bot size={15} />
           <span>AI Chat</span>
-          <span className="tab-badge">Gemini</span>
+          <span className="tab-badge">AI</span>
         </button>
       </div>
 
@@ -112,8 +106,8 @@ export default function ContentTabs({
               </div>
               <h3>Chat với {agentName}</h3>
               <p className="ai-chat-desc">
-                Mở Gemini Pro và chat trực tiếp với agent này.
-                Prompt sẽ được <strong>tự động copy</strong> — anh chỉ cần paste (Ctrl+V) vào Gemini.
+                Mở AI và chat trực tiếp với agent này.
+                Prompt sẽ được <strong>tự động copy</strong> — chỉ cần paste (Ctrl+V) vào AI chat.
               </p>
             </div>
 
@@ -124,7 +118,7 @@ export default function ContentTabs({
               </div>
               <div className="ai-step">
                 <div className="ai-step-num">2</div>
-                <div className="ai-step-text">Gemini mở tab mới — paste prompt (Ctrl+V / ⌘+V)</div>
+                <div className="ai-step-text">AI mở tab mới — paste prompt (Ctrl+V / ⌘+V)</div>
               </div>
               <div className="ai-step">
                 <div className="ai-step-num">3</div>
@@ -132,22 +126,40 @@ export default function ContentTabs({
               </div>
             </div>
 
-            <button
-              className={`ai-launch-btn ${copied ? "copied" : ""}`}
-              onClick={handleLaunchGemini}
-            >
-              {copied ? (
-                <>
-                  <Check size={18} />
-                  <span>Đã copy! Đang mở Gemini...</span>
-                </>
-              ) : (
-                <>
-                  <ExternalLink size={18} />
-                  <span>Copy Prompt & Mở Gemini Pro</span>
-                </>
-              )}
-            </button>
+            <div className="ai-launch-buttons">
+              <button
+                className={`ai-launch-btn gemini ${copied ? "copied" : ""}`}
+                onClick={() => handleLaunchAI("https://gemini.google.com/app", "Gemini")}
+              >
+                {copied ? (
+                  <>
+                    <Check size={18} />
+                    <span>Đã copy! Đang mở...</span>
+                  </>
+                ) : (
+                  <>
+                    <ExternalLink size={18} />
+                    <span>Gemini Pro</span>
+                  </>
+                )}
+              </button>
+              <button
+                className={`ai-launch-btn chatgpt ${copied ? "copied" : ""}`}
+                onClick={() => handleLaunchAI("https://chatgpt.com", "ChatGPT")}
+              >
+                {copied ? (
+                  <>
+                    <Check size={18} />
+                    <span>Đã copy! Đang mở...</span>
+                  </>
+                ) : (
+                  <>
+                    <ExternalLink size={18} />
+                    <span>ChatGPT Pro</span>
+                  </>
+                )}
+              </button>
+            </div>
 
             <div className="ai-chat-note">
               <Copy size={14} />

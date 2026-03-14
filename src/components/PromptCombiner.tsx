@@ -104,7 +104,7 @@ export default function PromptCombiner({ agents }: PromptCombinerProps) {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const handleLaunchGemini = async () => {
+  const handleLaunchAI = async (url: string) => {
     try {
       await navigator.clipboard.writeText(combinedPrompt);
     } catch {
@@ -117,7 +117,7 @@ export default function PromptCombiner({ agents }: PromptCombinerProps) {
     }
     setCopied(true);
     setTimeout(() => {
-      window.open("https://gemini.google.com/app", "_blank");
+      window.open(url, "_blank");
       setTimeout(() => setCopied(false), 2000);
     }, 500);
   };
@@ -254,9 +254,13 @@ export default function PromptCombiner({ agents }: PromptCombinerProps) {
                 {copied ? <Check size={16} /> : <Copy size={16} />}
                 <span>{copied ? "Đã copy!" : "Copy Prompt"}</span>
               </button>
-              <button className="combiner-gemini-btn" onClick={handleLaunchGemini}>
+              <button className="combiner-gemini-btn" onClick={() => handleLaunchAI("https://gemini.google.com/app")}>
                 <ExternalLink size={16} />
-                <span>Mở Gemini Pro</span>
+                <span>Gemini Pro</span>
+              </button>
+              <button className="combiner-chatgpt-btn" onClick={() => handleLaunchAI("https://chatgpt.com")}>
+                <ExternalLink size={16} />
+                <span>ChatGPT Pro</span>
               </button>
             </div>
 

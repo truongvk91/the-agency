@@ -1384,6 +1384,30 @@ a {
   box-shadow: 0 4px 20px rgba(99, 102, 241, 0.35);
 }
 
+.combiner-chatgpt-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex: 1;
+  padding: 13px 16px;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: linear-gradient(135deg, #10a37f, #1a7f64);
+  color: white;
+  box-shadow: 0 2px 12px rgba(16, 163, 127, 0.25);
+}
+
+.combiner-chatgpt-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(16, 163, 127, 0.35);
+}
+
 .combiner-toggle-preview {
   margin: 14px 24px 0;
   padding: 10px;
@@ -1544,9 +1568,8 @@ a {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  width: 100%;
+  flex: 1;
   padding: 16px 24px;
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
   color: white;
   border: none;
   border-radius: var(--radius-md);
@@ -1555,13 +1578,34 @@ a {
   font-family: inherit;
   cursor: pointer;
   transition: all 0.25s ease;
+}
+
+.ai-launch-buttons {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+}
+
+.ai-launch-btn.gemini {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
   box-shadow: 0 4px 20px rgba(99, 102, 241, 0.25);
 }
 
-.ai-launch-btn:hover {
+.ai-launch-btn.gemini:hover {
   background: linear-gradient(135deg, #818cf8, #a78bfa);
   transform: translateY(-2px);
   box-shadow: 0 6px 28px rgba(99, 102, 241, 0.35);
+}
+
+.ai-launch-btn.chatgpt {
+  background: linear-gradient(135deg, #10a37f, #1a7f64);
+  box-shadow: 0 4px 20px rgba(16, 163, 127, 0.25);
+}
+
+.ai-launch-btn.chatgpt:hover {
+  background: linear-gradient(135deg, #1ec99e, #10a37f);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 28px rgba(16, 163, 127, 0.35);
 }
 
 .ai-launch-btn:active {
@@ -1569,8 +1613,8 @@ a {
 }
 
 .ai-launch-btn.copied {
-  background: linear-gradient(135deg, var(--success), #16a34a);
-  box-shadow: 0 4px 20px rgba(34, 197, 94, 0.25);
+  background: linear-gradient(135deg, var(--success), #16a34a) !important;
+  box-shadow: 0 4px 20px rgba(34, 197, 94, 0.25) !important;
 }
 
 .ai-chat-note {
