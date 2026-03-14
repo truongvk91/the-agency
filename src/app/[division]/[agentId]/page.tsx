@@ -75,6 +75,8 @@ export default async function AgentPage({ params }: AgentPageProps) {
         <ContentTabs
           originalContent={agent.content}
           vietnameseContent={agent.vietnameseContent}
+          rawContent={agent.rawContent}
+          agentName={agent.name}
         />
       </div>
     </div>
