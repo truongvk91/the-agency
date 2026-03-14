@@ -1,7 +1,8 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Sidebar from "@/components/Sidebar";
+import MobileNav from "@/components/MobileNav";
 import { getDivisions, getTotalAgentCount, getAllAgents } from "@/lib/agents";
 import SearchBar from "@/components/SearchBar";
 
@@ -10,6 +11,12 @@ const inter = Inter({ subsets: ["latin", "vietnamese"] });
 export const metadata: Metadata = {
   title: "CM Media Agency — AI Prompt Library",
   description: "CM Media Agency - Thư viện Prompt AI nội bộ. Duyệt qua 172+ chuyên gia AI trong 14 phòng ban.",
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
 };
 
 export default function RootLayout({
@@ -24,8 +31,9 @@ export default function RootLayout({
   return (
     <html lang="vi" className="dark">
       <body className={inter.className}>
+        <MobileNav divisions={divisions} totalAgents={totalAgents} />
         <div className="app-layout">
-          <div className="sidebar-container">
+          <div className="sidebar-container desktop-only">
             <div className="sidebar-search">
               <SearchBar allAgents={allAgents} />
             </div>

@@ -104,6 +104,8 @@ export default function PromptCombiner({ agents }: PromptCombinerProps) {
     setTimeout(() => setCopied(false), 2000);
   };
 
+  const isMobile = () => /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
   const handleLaunchAI = async (url: string) => {
     try {
       await navigator.clipboard.writeText(combinedPrompt);
@@ -117,7 +119,11 @@ export default function PromptCombiner({ agents }: PromptCombinerProps) {
     }
     setCopied(true);
     setTimeout(() => {
-      window.open(url, "_blank");
+      if (isMobile()) {
+        window.location.href = url;
+      } else {
+        window.open(url, "_blank");
+      }
       setTimeout(() => setCopied(false), 2000);
     }, 500);
   };

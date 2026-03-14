@@ -23,6 +23,8 @@ export default function ContentTabs({
   );
   const [copied, setCopied] = useState(false);
 
+  const isMobile = () => /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
   const handleLaunchAI = async (url: string, name: string) => {
     try {
       await navigator.clipboard.writeText(rawContent);
@@ -36,7 +38,12 @@ export default function ContentTabs({
     }
     setCopied(true);
     setTimeout(() => {
-      window.open(url, "_blank");
+      if (isMobile()) {
+        // Use location.href to trigger universal links (opens native app)
+        window.location.href = url;
+      } else {
+        window.open(url, "_blank");
+      }
       setTimeout(() => setCopied(false), 2000);
     }, 600);
   };
