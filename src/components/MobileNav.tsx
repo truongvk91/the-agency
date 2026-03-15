@@ -71,6 +71,26 @@ export default function MobileNav({ divisions, totalAgents }: MobileNavProps) {
           ))}
         </div>
 
+        <div className="mobile-menu-label">MARKETING TOOLS</div>
+        <div className="mobile-menu-items">
+          <Link href="/command" className={`mobile-menu-item ${pathname === "/command" ? "active" : ""}`} onClick={() => setIsOpen(false)}>
+            <span className="mobile-menu-icon">🎯</span>
+            <span className="mobile-menu-name">Command Center</span>
+          </Link>
+          <Link href="/content-workshop" className={`mobile-menu-item ${pathname === "/content-workshop" ? "active" : ""}`} onClick={() => setIsOpen(false)}>
+            <span className="mobile-menu-icon">✍️</span>
+            <span className="mobile-menu-name">Content Workshop</span>
+          </Link>
+          <Link href="/ads-analyzer" className={`mobile-menu-item ${pathname === "/ads-analyzer" ? "active" : ""}`} onClick={() => setIsOpen(false)}>
+            <span className="mobile-menu-icon">🔍</span>
+            <span className="mobile-menu-name">Ads Analyzer</span>
+          </Link>
+          <Link href="/strategy" className={`mobile-menu-item ${pathname === "/strategy" ? "active" : ""}`} onClick={() => setIsOpen(false)}>
+            <span className="mobile-menu-icon">📈</span>
+            <span className="mobile-menu-name">Strategy & Reports</span>
+          </Link>
+        </div>
+
         <div className="mobile-menu-footer">
           <Link
             href="/combine"

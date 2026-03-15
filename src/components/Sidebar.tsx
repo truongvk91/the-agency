@@ -176,6 +176,27 @@ export default function Sidebar({ divisions, totalAgents }: SidebarProps) {
         </DndContext>
       </nav>
 
+      {/* Marketing Tools */}
+      <div className="sidebar-tools">
+        <div className="nav-label">MARKETING TOOLS</div>
+        <Link href="/command" className={`nav-item ${pathname === "/command" ? "active" : ""}`}>
+          <span className="nav-icon">🎯</span>
+          <span className="nav-name">Command Center</span>
+        </Link>
+        <Link href="/content-workshop" className={`nav-item ${pathname === "/content-workshop" ? "active" : ""}`}>
+          <span className="nav-icon">✍️</span>
+          <span className="nav-name">Content Workshop</span>
+        </Link>
+        <Link href="/ads-analyzer" className={`nav-item ${pathname === "/ads-analyzer" ? "active" : ""}`}>
+          <span className="nav-icon">🔍</span>
+          <span className="nav-name">Ads Analyzer</span>
+        </Link>
+        <Link href="/strategy" className={`nav-item ${pathname === "/strategy" ? "active" : ""}`}>
+          <span className="nav-icon">📈</span>
+          <span className="nav-name">Strategy & Reports</span>
+        </Link>
+      </div>
+
       {/* Footer */}
       <div className="sidebar-footer">
         <Link href="/combine" className={`sidebar-combine-link ${pathname === "/combine" ? "active" : ""}`}>
